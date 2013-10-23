@@ -64,7 +64,8 @@ import org.kiji.express.modeling.impl.KeyValueStores
 trait Trainer
     extends KeyValueStores
     with TupleConversions
-    with CommandLineArgs {
+    with CommandLineArgs
+    with Serializable {
 
   /**
    * Override this class to implement a MapReduce flow for the train phase.

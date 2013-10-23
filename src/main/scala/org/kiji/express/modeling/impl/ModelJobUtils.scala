@@ -263,6 +263,7 @@ object ModelJobUtils {
           val options = new ColumnRequestOptions(
               expressColumnRequest.maxVersions,
               expressColumnRequest.filter.map { _.toKijiColumnFilter })
+              .newWithUseDefaultReaderSchema()
           val kijiColumnName = new KijiColumnName(expressColumnRequest.name)
           val columnRequest: ColumnRequest =
               if (kijiColumnName.isFullyQualified) {
@@ -419,7 +420,7 @@ object ModelJobUtils {
           val Array(family, columnQualifier) = fieldBinding.storeFieldName.split(":", 2)
 
           val field = Symbol(fieldBinding.tupleFieldName)
-          val column = QualifiedColumn(family, columnQualifier)
+          val column = QualifiedColumn(family, columnQualifier).useDefaultReaderSchema()
 
           (field, column)
         }

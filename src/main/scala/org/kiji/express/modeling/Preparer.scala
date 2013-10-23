@@ -63,7 +63,8 @@ import org.kiji.express.modeling.impl.KeyValueStores
 trait Preparer
     extends KeyValueStores
     with TupleConversions
-    with CommandLineArgs {
+    with CommandLineArgs
+    with Serializable {
 
   /**
    * Override this class to implement a MapReduce flow for the prepare phase.

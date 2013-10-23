@@ -69,7 +69,8 @@ trait Scorer
     extends KeyValueStores
     with CommandLineArgs
     with FieldConversions
-    with TupleConversions {
+    with TupleConversions
+    with Serializable {
   /**
    * Used to define the computation required for the Score phase of the model workflow.
    *
